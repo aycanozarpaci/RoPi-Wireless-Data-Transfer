@@ -4,10 +4,9 @@ Kablosuz olarak Laragon Web Sunucusunu ile Bilgisayardan Cep telefonuna Veya Cep
 Wireless data transfer by RoPi
 
 # Gerekli Dosyalar
-Herhangi bir web sunucusu indirmeniz gerekmekte
-1. [laragon](https://laragon.org/) **Tavsiye Edilen**
-2. [usbwebserver](https://www.usbwebserver.net/)
-3. Bu GitHub prohesini indirmelisiniz.
+Herhangi bir web sunucusu indirmeniz gerekmekte bende laragon kurulu siz dilediğini indirin
+1. [laragon](https://laragon.org/) indirin **Portable Sürümü**
+2. Bu GitHub prohesini indirmelisiniz.
 
 # Nasıl Kurulur
 Anlatım [laragon](https://laragon.org/)  üzerinden yapılmaktadır.
