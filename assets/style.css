@@ -9,6 +9,9 @@ strong{
     background:#3810b0;
     padding:4px;
 }
+.img-preview{
+    width:64px;
+}
 
 .dropzone{
     background: linear-gradient(to right, #3681e3, #3810b0);
@@ -16,4 +19,13 @@ strong{
     color:white;
 
     border-radius:12px;
+}
+
+@media only screen and (max-width: 600px) {
+    .howto {
+        display: none;
+    }
+    .img-preview{
+        width:32px;
+    }
 }

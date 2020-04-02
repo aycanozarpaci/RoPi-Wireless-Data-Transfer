@@ -32,10 +32,10 @@ if(false !== $files)
             $output .= '
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-3">
-                        <img src="'.$folder_name.$file.'" alt="" width="64" onerror="this.src=\'assets/img/file.png\';">
+                    <div class="col-md-3 col-sm-3">
+                        <img src="'.$folder_name.$file.'" alt="" class="img-preview" onerror="this.src=\'assets/img/file.png\';">
                     </div> 
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-9">
                         '.$file.'
                     </div>
                     <div class="col-md-3">

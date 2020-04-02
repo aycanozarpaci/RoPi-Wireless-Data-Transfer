@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!doctype html>
 <html lang="tr">
 <head>
@@ -9,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>RoPi Wireless Data Transfer</title>
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/dropzone/dropzone.css" />
     <link rel="stylesheet" href="assets/style.css" />
-    <script src="assets/dropzone/dropzone.js"></script>
     <link rel='icon' href='assets/fav.ico' type='image/x-icon'/ >
 </head>
 <body>
@@ -34,7 +27,7 @@
             <form action="upload.php" class="dropzone" id="DropzoneRoPi">
                 <div class="dz-message" data-dz-message><span>Yüklemek için dokunun veya dosyaları buraya sürükleyin</span></div>
                 <div class="fallback">
-                    <input name="file" type="file" multiple />
+                    <input name="file[]" type="file" multiple />
                 </div>
             </form>
             <small class="text-muted float-right">
@@ -50,7 +43,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-12">
-                <h2><strong>Dosya</strong> Yöneticisi</h2>
+                <h4><strong>Dosya</strong> Yöneticisi</h4>
             </div>
             <div class="col-md-12">
                 <ul class="list-group" id="preview">
@@ -66,55 +59,11 @@
         </div>
     </div>
 </div>
+
+<script src="assets/jquery.min.js"></script>
+<script src="assets/bootstrap/bootstrap.min.js"></script>
+<script src="assets/dropzone/dropzone.js"></script>
+<script src="assets/ropi.js"></script>
 </body>
 </html>
 
-<script>
-
-$(document).ready(function(){
-        Dropzone.options.DropzoneRoPi = {
-            autoProcessQueue: false,
-            parallelUploads:50000,
-            init: function(){
-                var submitButton = document.querySelector('#submit-all');
-                myDropzone = this;
-                submitButton.addEventListener("click", function(){
-                    myDropzone.processQueue();
-                });
-                this.on("complete", function(){
-                    if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-                    {
-                        var _this = this;
-                        _this.removeAllFiles();
-                    }
-                    list_image();
-                });
-            },
-        };
-
-        list_image();
-        function list_image()
-        {
-            $.ajax({
-                url:"upload.php",
-                success:function(data){
-                    $('#preview').html(data);
-                }
-            });
-        }
-
-        $(document).on('click', '.remove_image', function(){
-            var name = $(this).attr('id');
-            $.ajax({
-                url:"upload.php",
-                method:"POST",
-                data:{name:name},
-                success:function(data)
-                {
-                    list_image();
-                }
-            })
-        });
-
-    });
-</script>
